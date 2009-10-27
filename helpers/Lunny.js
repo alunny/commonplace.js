@@ -2,10 +2,10 @@
 
 // helper utility object
 	
-	function Lunny() {
+	this.Lunny = function Lunny() {
 	};
 	
-	Lunny.prototype.constructor_only = function() { 
+	this.Lunny.prototype.constructor_only = function() { 
 		if (!(this instanceof arguments.callee.caller))
 			throw Error("constructor called as function");
 	}

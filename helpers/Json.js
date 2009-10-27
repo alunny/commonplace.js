@@ -1,10 +1,10 @@
 // json serializing and parsing javascript objects
 // called "Json" to differentiate from window.JSON
 
-	function Json() {
+	this.Json = function Json() {
 	};
 	
-	Json.prototype.serialize = function(obj) {
+	this.Json.prototype.serialize = function(obj) {
 		var jp = Json.prototype;
 		var serializeObject = function(obj) {
 			var str = "{";

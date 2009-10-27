@@ -4,7 +4,7 @@
 // by convention, unit tests in subclasses should be named "test_"...
 // this allows them to be called by run_unit_tests()
 
-	function Test() {
+	this.Test = function Test() {
 		Test.prototype.prefix_test = new RegExp(/^test_.+$/);
 		
 		Test.prototype.log = function(msg) {

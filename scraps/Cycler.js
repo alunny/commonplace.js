@@ -13,7 +13,7 @@
 	// m.reset()
 	// assert(m.cycle() == 1)
 
-	function Cycler() {
+	this.Cycler = function Cycler() {
 		Lunny.prototype.constructor_only.call(this);
 	
 		var _fns = new Array(arguments.length);
@@ -37,7 +37,7 @@
 			this.cycle = _first_fn;
 		};
 	};
-	Cycler.prototype.vals = new Array();
-	Cycler.prototype.cycle = function() {};
-	Cycler.prototype.reset = function() {};
+	this.Cycler.prototype.vals = new Array();
+	this.Cycler.prototype.cycle = function() {};
+	this.Cycler.prototype.reset = function() {};
 	

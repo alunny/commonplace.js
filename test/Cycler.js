@@ -1,8 +1,7 @@
 // require: helpers/Test.js
 // require: scraps/Cycler.js
 
-	Cycler_Test.prototype = new Test();
-	function Cycler_Test() {
+	this.Cycler_Test = function Cycler_Test() {
 		var ctp = Cycler_Test.prototype;
 		
 		ctp.init = function() {
@@ -34,3 +33,5 @@
 		};
 		
 	};
+	
+	this.Cycler_Test.prototype = new Test();
