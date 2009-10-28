@@ -1,13 +1,15 @@
 <!-- default template for some test case -->
 <html>
 	<head>
-		<title>Commonplace Test Case for <% class %></title>
-		<% script_tags %>
+		<title>Commonplace Test Case for <%= class_name %></title>
+		<%=
+			print_all(scripts,"js")
+		%>
 		<script>
 			var m = [1,2,3];
 		</script>
 	</head>
 	<body>
-		<% output %>
+		<%= body_text %>
 	</body>
 </html>
