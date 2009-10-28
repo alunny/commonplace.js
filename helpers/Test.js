@@ -26,7 +26,7 @@
 		};
 		
 		Test.prototype.run_unit_tests = function() {
-			var tests = new Array(), key;
+			var tests = [], key;
 			var call_test = function(i) {
 				try {
 					this[tests[i]].call(this);
@@ -44,4 +44,6 @@
 			this.init();
 			tests.each(call_test, this);
 		};		
-	}
+	};
+	
+	var Test = this.Test;

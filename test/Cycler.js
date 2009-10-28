@@ -1,15 +1,19 @@
+// require: helpers/Array.js
 // require: helpers/Test.js
+// require: helpers/Lunny.js
 // require: scraps/Cycler.js
 
 	this.Cycler_Test = function Cycler_Test() {
-		var ctp = Cycler_Test.prototype;
+		Lunny.prototype.constructor_only.call(this);
 		
+		var ctp = Cycler_Test.prototype;
+	
 		ctp.init = function() {
 			this.cycler_A = new Cycler(1,2);
 			this.cycler_A_list = [1,2];
 			this.cycler_B = new Cycler("a","b","c");
 			this.cycler_B_list = ["a","b","c"];
-		}
+		};
 		
 		ctp.test_vals = function() {
 			this.assert(this.cycler_A.vals.isEqual(this.cycler_A_list), "cycler A values recorded correctly");
@@ -31,7 +35,7 @@
 			this.assert(this.cycler_B.cycle() == this.cycler_B_list[0], "cycle returns correctly after reset");
 			return 1;
 		};
-		
 	};
+	var Cycler_Test = this.Cycler_Test;
 	
 	this.Cycler_Test.prototype = new Test();

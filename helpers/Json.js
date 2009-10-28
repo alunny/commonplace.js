@@ -3,6 +3,7 @@
 
 	this.Json = function Json() {
 	};
+	var Json = this.Json;
 	
 	this.Json.prototype.serialize = function(obj) {
 		var jp = Json.prototype;
@@ -16,7 +17,7 @@
 		};
 		var serializeArray = function(arr) {
 			var str = "[";
-			arr.each(function(i) { str += jp.serialize(this[i]) + "," });
+			arr.each(function(i) { str += jp.serialize(this[i]) + ","; });
 			return str.replace(/,$/,"]");
 		};
 		var serializeString = function(str) {
@@ -28,7 +29,7 @@
 				if (obj instanceof Array) return serializeArray(obj);
 				else if (obj == null) return "null";
 				else {
-					return serializeObject(obj);;
+					return serializeObject(obj);
 				}
 				break;
 			case "string":

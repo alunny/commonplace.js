@@ -12,3 +12,4 @@
 		}
 		return r;
 	};
+	var range = this.range;

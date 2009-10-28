@@ -37,7 +37,9 @@
 			this.cycle = _first_fn;
 		};
 	};
-	this.Cycler.prototype.vals = new Array();
+	var Cycler = this.Cycler;
+	
+	this.Cycler.prototype.vals = [];
 	this.Cycler.prototype.cycle = function() {};
 	this.Cycler.prototype.reset = function() {};
 	

@@ -12,4 +12,4 @@
 	
 	Array.prototype.isEqual = function(arr) {
 		return Json.prototype.serialize(this) == Json.prototype.serialize(arr);
-	}
+	};
