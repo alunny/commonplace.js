@@ -1,15 +1,13 @@
 // require: helpers/Test.js
-// require: helpers/<% scrap_name %>.js
-
-// test description
+// require: helpers/<%= scrap_name %>.js
 	
 	// two references: one for internal scraps (var), one for export (this)
-	this.<% scrap_name %>_Test = function <% scrap_name %>_Test() {
+	this.<%= scrap_name %>_Test = function <%= scrap_name %>_Test() {
 		Lunny.prototype.constructor_only.call(this);
 		
 		// constructor code
 	};
-	var <% scrap_name %>_Test = this.<% scrap_name %>_Test;
+	var <%= scrap_name %>_Test = this.<%= scrap_name %>_Test;
 	
 	// prototype attributes go here
-	this.<% scrap_name %>_Test.prototype = new Test();
+	this.<%= scrap_name %>_Test.prototype = new Test();
