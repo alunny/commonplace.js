@@ -9,23 +9,39 @@ from helpers import *
 
 class CommonplaceGenerator:
 	cp_root = "" # TODO: calculate based on where script is run
+	template_writer = template.FileTemplate()
+	
+	def scrap(self, class_name, template_name="new_scrap_class.js", test_template_name="new_test.js", no_test=False):
+		inputs = dict(scrap_name=class_name)
+		scrap_dest = "scraps/" + class_name + ".js"
+				
+		# write scrap
+		print "--- writing scrap to " + scrap_dest + " using template " + template_name
+		self.template_writer.render(inputs,template_name,scrap_dest)
 		
-	# testcase
-	# ~$ python script/generate.py testcase Cycler default
-	# 	produces /testcases/Cycler.html
-	# 	based on default template
-	def testcase(self):
-		class_name = sys.argv[2]
+		if not no_test:
+			test_dest = "test/" + class_name + ".js"
+			print "--- writing test to " + test_dest
+			self.template_writer.render(inputs,test_template_name,test_dest)
+			
+	def test(self, class_name, template_name="new_test.js"):
+		inputs = dict(scrap_name=class_name)
+		test_dest = "test/" + class_name + ".js"
+		
+		print "--- writing test to " + test_dest + " using template " + template_name
+		self.template_writer.render(inputs,template_name,test_dest)
+		
+	def testcase(self, class_name, template_name="default.html", output_name=None):
 		test_name = "test/" + class_name + ".js"
-		template_name = sys.argv[3] or "default"
+		if not output_name:
+			output_name = class_name + ".html"
 		
 		required = get_requirements(test_name) # refactor
 		required.append(test_name)
 		required = uniquify(required)
 		
-		inputs = dict(class_name=class_name,scripts=required,body_text="nom nom nom")
-		source = template_name + ".html"
-		destination = "testcases/" + class_name + ".html"
+		inputs = dict(class_name=class_name,scripts=required)
+		source = template_name
+		destination = "testcases/" + output_name
 		
-		template_writer = template.Template()
-		template_writer.render(inputs,source,destination)
+		self.template_writer.render(inputs,source,destination)

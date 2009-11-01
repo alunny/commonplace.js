@@ -16,6 +16,7 @@ def uniquify(seq, idfun=None):
    return result
 
 def get_requirements(scrap):
+	required = []	
 	f_lines = open(scrap).readlines()
 	required = []
 	for line in f_lines:

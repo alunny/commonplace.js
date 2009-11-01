@@ -1,6 +1,7 @@
 # class for rendering templates
 import re
 
+# template helper functions
 def print_all(seq,type):
 	fn = lambda(x,y): x
 	if type=="js": fn = script_tag
@@ -16,7 +17,7 @@ def script_tag(url, base):
 		root = ""
 	return tag_template.replace("{__src__}",root + url)
 
-class Template:
+class FileTemplate:
 	# eval_pattern = r"(<%\s+(.*?)\s+%>)" -- feature creep
 	eval_print_pattern = r"(<%=\s+(.*?)\s+%>)"
 	
