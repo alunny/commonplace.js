@@ -3,3 +3,4 @@ tmp/*
 !tmp/.gitignore
 script/*pyc
 bin/*
+!bin/.gitignore
